@@ -1,218 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frameline Photography</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background-color: #fafafa;
-    color: #333;
-  }
-
-  /* Header */
-  header {
-    background: url('header-bg.jpg') no-repeat center center/cover;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-  }
-  header img {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-  header h1 {
-    font-size: 3em;
-    margin: 0;
-  }
-  header p {
-    font-size: 1.2em;
-  }
-
-  /* Navigation */
-  nav {
-    display: flex;
-    justify-content: center;
-    background-color: #111;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    padding: 15px 25px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  nav a:hover {
-    background-color: #444;
-    border-radius: 5px;
-  }
-
-  /* Sections */
-  section {
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.2em;
-  }
-
-  /* Gallery slider */
-  .slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 15px;
-    padding-bottom: 10px;
-  }
-  .slider img {
-    flex: 0 0 auto;
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s;
-  }
-  .slider img:hover {
-    transform: scale(1.05);
-  }
-
-  /* About and Services */
-  .text-center {
-    text-align: center;
-    line-height: 1.6em;
-    font-size: 1.1em;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  ul li {
-    background-color: #111;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    transition: 0.3s;
-  }
-  ul li:hover {
-    background-color: #444;
-  }
-
-  /* Contact form */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: auto;
-    gap: 15px;
-  }
-  .contact-form input, .contact-form textarea {
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-  }
-  .contact-form button {
-    padding: 12px;
-    background-color: #111;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: 0.3s;
-  }
-  .contact-form button:hover {
-    background-color: #444;
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #111;
-    color: white;
-  }
-
-  @media (max-width: 768px) {
-    .slider img {
-      width: 80%;
-      height: auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frameline Photography</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
-    ul {
-      flex-direction: column;
+
+    body {
+      background-color: #111;
+      color: #fff;
+      scroll-behavior: smooth;
     }
-  }
-</style>
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #000, #333);
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #00bcd4;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #ccc;
+    }
+
+    nav {
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #00bcd4;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .pricing {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .price-card {
+      background: #1c1c1c;
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,188,212,0.5);
+    }
+
+    .price-card h3 {
+      margin-bottom: 10px;
+      color: #00bcd4;
+    }
+
+    .price-card p {
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    form {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    form button {
+      background: #00bcd4;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    form button:hover {
+      background: #0097a7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #000;
+      color: #777;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="Frameline Logo">
+    <h1>Frameline Photography</h1>
+    <p>Capturing moments from ground to sky — with Canon & DJI.</p>
+  </header>
 
-<header>
-  <img src="logo.png" alt="Frameline Logo">
-  <h1>Frameline Photography</h1>
-  <p>Capturing moments from ground to sky</p>
-</header>
+  <nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#booking">Book a Shoot</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<nav>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="Drone Shot">
+      <img src="photo2.jpg" alt="Nature Shot">
+      <img src="photo3.jpg" alt="Event Photo">
+    </div>
+  </section>
 
-<section id="portfolio">
-  <h2>Portfolio</h2>
-  <div class="slider">
-    <img src="photo1.jpg" alt="Sample Photo 1">
-    <img src="photo2.jpg" alt="Sample Photo 2">
-    <img src="photo3.jpg" alt="Sample Photo 3">
-    <img src="photo4.jpg" alt="Sample Photo 4">
-  </div>
-</section>
+  <section id="pricing">
+    <h2>Packages & Pricing</h2>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p>10 Edited Photos</p>
+        <p>£15</p>
+      </div>
+      <div class="price-card">
+        <h3>Standard</h3>
+        <p>30 Edited Photos</p>
+        <p>£40</p>
+      </div>
+      <div class="price-card">
+        <h3>Pro</h3>
+        <p>60 Edited Photos</p>
+        <p>£75</p>
+      </div>
+      <div class="price-card">
+        <h3>Custom</h3>
+        <p>Need something different?</p>
+        <p>Contact for a quote!</p>
+      </div>
+    </div>
+  </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p class="text-center">Hi! I'm a 14-year-old photographer capturing stunning moments with my Canon and DJI drone. Frameline brings creativity, precision, and passion to every shot, from portraits to aerial views.</p>
-</section>
+  <section id="booking">
+    <h2>Book a Shoot</h2>
+    <form name="booking-form" netlify>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <select name="package" required>
+        <option value="">Select Package</option>
+        <option value="Starter - £15">Starter - £15</option>
+        <option value="Standard - £40">Standard - £40</option>
+        <option value="Pro - £75">Pro - £75</option>
+        <option value="Custom Quote">Custom Quote</option>
+      </select>
+      <textarea name="message" rows="5" placeholder="Tell us about your shoot idea..."></textarea>
+      <button type="submit">Send Booking Request</button>
+    </form>
+  </section>
 
-<section id="services">
-  <h2>Services</h2>
-  <ul>
-    <li>Portrait Photography</li>
-    <li>Drone/Aerial Photography</li>
-    <li>Event Photography</li>
-    <li>Photo Editing</li>
-  </ul>
-</section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align:center;">Email: <a href="mailto:framelinephoto@gmail.com" style="color:#00bcd4;">framelinephoto@gmail.com</a></p>
+    <p style="text-align:center;">Instagram: <a href="https://instagram.com" target="_blank" style="color:#00bcd4;">@frameline.photo</a></p>
+  </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <form class="contact-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 Frameline Photography | All Rights Reserved</p>
-</footer>
-
+  <footer>
+    <p>© 2025 Frameline Photography. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
+
